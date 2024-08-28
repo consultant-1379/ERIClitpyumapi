@@ -1,0 +1,2 @@
+# 01. CREATE YUM-REPOSITORY WITHOUT SPECIFYING PROPERITIES
+assertError --err_type=MissingRequiredPropertyError --err_message='temType "yum-repository" is required to have a property with name "name"' create -t yum-repository -p /software/items/yum1

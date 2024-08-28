@@ -1,0 +1,2 @@
+# 09. CREATE YUM-REPOSITORY WITH AN INVALID ITEM ID
+assertError create -t yum-repository -p '/software/item*item' -o name='yum1' base_url='file:///path/to/yum'

@@ -1,0 +1,2 @@
+# 03. CREATE YUM-REPOSITORY WITH MS_URL_PATH PROPERTY ONLY
+assertError create -t yum-repository -p /software/items/yum1 -o ms_url_path='/yum1'

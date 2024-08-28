@@ -1,0 +1,31 @@
+runLitpScript 2_node_cluster_setup.inc
+add-plugins plugins/dummy_9742_validator_plugin
+
+litp create -t yum-repository -p /software/items/yum1 -o name='yum1' base_url='http://path/to/yum1'
+
+
+#invalid values
+assertError --err_type ValidationError --err_property checksum --err_message 'Invalid value' update -p /software/items/yum1 -o checksum='!"$%^&*()_+-=.FGHfgh@?*_________'
+assertError --err_type ValidationError --err_property checksum --err_message 'Invalid value' update -p /software/items/yum1 -o checksum='a1234'
+assertError --err_type ValidationError --err_property checksum --err_message 'Invalid value' update -p /software/items/yum1 -o checksum=''
+assertError --err_type ValidationError --err_property checksum --err_message 'Invalid value' update -p /software/items/yum1 -o checksum='1234567890123456789012345678901'
+assertError --err_type ValidationError --err_property checksum --err_message 'Invalid value' update -p /software/items/yum1 -o checksum='123456789012345678901234567890123'
+assertError --err_type ValidationError --err_property checksum --err_message 'Invalid value' update -p /software/items/yum1 -o checksum='ghijklmnopqrstuvwxyz000000000000'
+assertError --err_type ValidationError --err_property checksum --err_message 'Invalid value' update -p /software/items/yum1 -o checksum='GHIJKLMNOPQRSTUVWXYZ000000000000'
+
+#valid values
+litp  update -p /software/items/yum1 -o checksum='0123456789ABCDEFabcdef0000000000'
+litp  update -p /software/items/yum1 -o checksum='84638726abcFFFFF28528564A65FedA0'
+litp  update -p /software/items/yum1 -d checksum
+litp  update -p /software/items/yum1 -o checksum='0123456789ABCDEFabcdef0000000000'
+
+litp create_plan
+litp run_plan
+
+assertProperty /software/items/yum1 -o checksum='0123456789ABCDEFabcdef0000000123'
+
+assertError --err_type InvalidRequestError --err_property checksum --err_message 'Unable to modify readonly property: checksum'  update -p /software/items/yum1 -o checksum='0123456789ABCDEFabcdef0000000111'
+assertError --err_type InvalidRequestError --err_property checksum --err_message 'Unable to modify readonly property: checksum'  update -p /software/items/yum1 -d checksum
+
+litp create_plan
+litp run_plan

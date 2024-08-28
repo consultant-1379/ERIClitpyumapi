@@ -1,0 +1,2 @@
+# 08. CREATE YUM-REPOSITORY WITH AN INVALID BASE_URL PROPERTY
+assertError create -t yum-repository -p /software/items/yum1 -o name='YUM1'base_url='INVALID_URL'

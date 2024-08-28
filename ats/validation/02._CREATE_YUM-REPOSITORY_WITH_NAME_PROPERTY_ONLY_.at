@@ -1,0 +1,3 @@
+# 02. CREATE YUM-REPOSITORY WITH NAME PROPERTY ONLY
+#LITPCDS-10058 this now is valid as the inherited item will validate url
+litp create -t yum-repository -p /software/items/yum1 -o name='yum1'

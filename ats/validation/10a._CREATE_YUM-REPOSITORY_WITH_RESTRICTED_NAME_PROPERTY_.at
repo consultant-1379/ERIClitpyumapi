@@ -1,0 +1,2 @@
+# 10a. CREATE YUM-REPOSITORY WITH RESTRITCED NAME (LITP)
+assertError create -t yum-repository -p /software/items/yum1 -o name='LITP' base_url='http://example.com/repo1'

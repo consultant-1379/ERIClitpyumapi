@@ -1,0 +1,4 @@
+# 20. UPDATE YUM-REPOSITORY WITH DUPLICATE MS_URL_PATH PROPERTY
+litp create -t yum-repository -p /software/items/yum1 -o name='yum1' ms_url_path='/path/to/yum1'
+litp create -t yum-repository -p /software/items/yum2 -o name='yum1' ms_url_path='/path/to/yum2'
+litp update -p /software/items/yum1 -o ms_url_path='/path/to/yum2'

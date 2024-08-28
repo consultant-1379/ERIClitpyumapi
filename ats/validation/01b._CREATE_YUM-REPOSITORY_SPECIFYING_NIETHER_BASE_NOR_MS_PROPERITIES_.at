@@ -1,0 +1,2 @@
+# 01a. CREATE YUM-REPOSITORY SPECIFYING BOTH BASE and MS PROPERITIES
+litp create -t yum-repository -p /software/items/yum1 -o name=yum1

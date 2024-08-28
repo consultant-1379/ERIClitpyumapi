@@ -1,0 +1,2 @@
+# 01a. CREATE YUM-REPOSITORY SPECIFYING BOTH BASE and MS PROPERITIES
+assertError --err_message='Only one of "ms_url_path" or "base_url" property must be set.' create -t yum-repository -p /software/items/yum1 -o name=yum1 ms_url_path='/yum1' base_url='file:///path/to/yum1'

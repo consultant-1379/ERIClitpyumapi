@@ -1,0 +1,11 @@
+# 01e. CREATE YUM-REPOSITORY WITH VALID PROPERITIES (ms_url_path)
+
+litp create -t yum-repository -p /software/items/yum1 -o name=test_repo1 ms_url_path=/path/to/repo1
+
+assertError --err_type=ValidationError --err_message='"/litp" is a restricted value for this property.' create -t yum-repository -p /software/items/yum2 -o name=repo1 ms_url_path=/litp
+
+assertError --err_type=ValidationError --err_message='"/LITP_PLUGINS/" is a restricted value for this property.'  create -t yum-repository -p /software/items/yum3 -o name=repo2 ms_url_path=/LITP_PLUGINS/
+
+assertError --err_type=ValidationError --err_message='"/3PP" is a restricted value for this property.'  create -t yum-repository -p /software/items/yum3 -o name=repo2 ms_url_path=/3PP
+
+litp create -t yum-repository -p /software/items/yum3 -o name=repo2 ms_url_path=/test/Hello/litp/3pp

@@ -1,0 +1,2 @@
+# 05. CREATE YUM-REPOSITORY WITH CACHE_METADATA PROPERTY ONLY
+assertError create -t yum-repository -p /software/items/yum1 -o cache_metadata='true'

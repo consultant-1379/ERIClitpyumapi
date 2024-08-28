@@ -1,0 +1,2 @@
+# 10f. CREATE YUM-REPOSITORY WITH RESTRITCED NAME (CBA)
+assertError create -t yum-repository -p /software/items/yum1 -o name='LITP_PLUGINS' base_url='http://example.com/repo1'

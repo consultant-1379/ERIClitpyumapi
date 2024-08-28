@@ -1,0 +1,3 @@
+# 18. UPDATE YUM-REPOSITORY WITH VALID CACHE_METADATA PROPERTY
+litp create -t yum-repository -p /software/items/yum1 -o name='yum1' ms_url_path='/path/to/yum'
+litp update -p /software/items/yum1 -o cache_metadata='true'

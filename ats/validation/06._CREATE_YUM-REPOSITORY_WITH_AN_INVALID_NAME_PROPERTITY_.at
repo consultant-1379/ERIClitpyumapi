@@ -1,0 +1,2 @@
+# 06. CREATE YUM-REPOSITORY WITH AN INVALID NAME PROPERTITY
+assertError create -t yum-repository -p /software/items/yum1 -o name='INVALID NAME' base_url='file:///path/to/yum1'

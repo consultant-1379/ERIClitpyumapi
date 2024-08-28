@@ -1,0 +1,3 @@
+# 01d. CREATE YUM-REPOSITORY WITH VALID PROPERITIES (file)
+
+litp create -t yum-repository -p /software/items/yum1 -o name=test_repo1 base_url=file:///path/to/repo1

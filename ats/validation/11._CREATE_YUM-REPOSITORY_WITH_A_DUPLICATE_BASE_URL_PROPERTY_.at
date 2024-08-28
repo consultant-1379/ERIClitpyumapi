@@ -1,0 +1,3 @@
+# 11. CREATE YUM-REPOSITORY WITH A DUPLICATE BASE_URL PROPERTY
+litp create -t yum-repository -p /software/items/yum1 -o name='yum1' base_url='file:///path/to/yum'
+litp create -t yum-repository -p /software/items/yum2 -o name='yum2' base_url='file:///path/to/yum'

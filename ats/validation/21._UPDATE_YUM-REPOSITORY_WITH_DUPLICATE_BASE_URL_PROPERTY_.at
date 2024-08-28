@@ -1,0 +1,4 @@
+# 21. UPDATE YUM-REPOSITORY WITH DUPLICATE BASE_URL PROPERTY
+litp create -t yum-repository -p /software/items/yum1 -o name='yum1' base_url='http://path/to/yum1'
+litp create -t yum-repository -p /software/items/yum2 -o name='yum1' base_url='http://path/to/yum2'
+litp update -p /software/items/yum1 -o base_url='http://path/to/yum2'

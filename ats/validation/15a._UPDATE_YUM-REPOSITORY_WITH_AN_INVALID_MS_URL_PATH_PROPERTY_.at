@@ -1,0 +1,3 @@
+# 15a. UPDATE YUM-REPOSITORY WITH AN INVALID MS_URL_PATH PROPERTY
+litp create -t yum-repository -p /software/items/yum1 -o name='yum1' ms_url_path='/path/to/yum'
+assertError update -p /software/items/yum1 -o ms_url_path='INVALID'

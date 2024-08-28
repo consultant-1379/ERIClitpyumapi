@@ -1,0 +1,3 @@
+# 12. CREATE YUM-REPOSITORY WITH A DUPLICATE ITEM ID
+litp create -t yum-repository -p /software/items/yum1 -o name='yum1' base_url='file:///path/to/yum'
+assertError create -t yum-repository -p /software/items/yum1 -o name='yum2' base_url='file:///path/to/yum'
